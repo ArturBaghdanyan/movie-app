@@ -1,0 +1,142 @@
+@mixin pagesItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+}
+
+.pages {
+  width: 100%;
+  height: 100%;
+  background-color: #040404;
+  display: flex;
+  justify-content: center;
+  flex: 0 0 10%;
+  transition:
+    flex-basis 0.3s ease,
+    background-color 1s ease;
+
+  padding-left: 38px;
+
+  &.expanded {
+    flex: 0 0 20%;
+    flex-direction: column;
+    height: 100%;
+    opacity: 1;
+    transform: translateX(0);
+    transition:
+      opacity 0.3s ease,
+      transform 1s ease;
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 200px;
+    gap: 60px;
+    height: 100vh;
+
+    &_icons {
+      @include pagesItem;
+      align-items: flex-start;
+      flex-direction: row !important;
+
+      &_column {
+        @include pagesItem;
+        gap: 70px;
+
+        &_item {
+          @include pagesItem;
+
+          &_home {
+            border-radius: 50%;
+            width: 82px;
+            height: 82px;
+            background-color: #3b486d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.homeIcon {
+              background: none;
+              width: auto;
+              height: auto;
+              box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            }
+          }
+          > img {
+            height: 28px;
+          }
+        }
+
+        &_text {
+          @include pagesItem;
+          align-items: flex-start !important;
+          background-color: inherit;
+          visibility: hidden;
+          transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0s linear 0.3s;
+          position: absolute;
+          top: 17%;
+          left: 82px;
+          visibility: hidden;
+
+          &_item {
+            display: flex;
+            align-items: flex-start;
+            column-gap: 20px;
+            text-decoration: none;
+            font-size: 36px;
+            height: 36px;
+            transform: translateX(-20px);
+            transition: max-width 0.5s ease;
+            color: #f1f1f1;
+            white-space: nowrap;
+
+            .pages.expanded & {
+              opacity: 80%;
+              transform: translateX(0);
+              visibility: visible;
+              transition:
+                opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0s linear 0s;
+            }
+          }
+          .textExpanded &_text {
+            opacity: 1;
+            max-width: 200px;
+          }
+        }
+      }
+    }
+  }
+  &_footer {
+    @include pagesItem;
+    align-items: flex-start !important;
+    gap: 20px;
+    position: absolute;
+    top: 70%;
+    left: 38px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+
+    > span {
+      text-transform: uppercase;
+      color: #858688;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  &_footer.footerExpanded {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

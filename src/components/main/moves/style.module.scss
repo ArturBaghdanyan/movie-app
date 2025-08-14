@@ -1,0 +1,27 @@
+.icons {
+  width: 100%;
+  overflow: visible;
+
+  .swiperContainer {
+    width: 100%;
+
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px !important;
+      height: 296px !important;
+
+      img {
+        max-width: 100% !important;
+        height: 100% !important;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #fff;
+  }
+}
