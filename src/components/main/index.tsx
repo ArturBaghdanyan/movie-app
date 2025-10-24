@@ -48,7 +48,7 @@ const MainContainer = () => {
     setSelectedMovie(movie);
     sessionStorage.setItem(
       "selectedMovie",
-      JSON.stringify({ id: movie.Id, title: movie.Title }),
+      JSON.stringify({ id: movie.Id, title: movie.Title })
     );
     setPlayingVideo(false);
   };
@@ -89,47 +89,49 @@ const MainContainer = () => {
 
   return (
     <div
-      className={style.main}
       style={{
+        width: '100%',
         backgroundImage: `url(${bgImage})`,
         backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundPosition: "right center",
       }}
     >
-      <div className={style.main_title}>
-        <h2>{movieToShow.Category}</h2>
-        <div className={style.main_title_name}>
-          {selectedMovie?.Id === data?.Featured.Id ? (
-            <img src={featuredTitleImage} alt={data.Featured.Title} />
-          ) : (
-            <span className={style.main_title_name_text}>
-              {selectedMovie?.Title}
-            </span>
+      <div className={style.main}>
+        <div className={style.main_title}>
+          <h2>{movieToShow.Category}</h2>
+          <div className={style.main_title_name}>
+            {selectedMovie?.Id === data?.Featured.Id ? (
+              <img src={featuredTitleImage} alt={data.Featured.Title} />
+            ) : (
+              <span className={style.main_title_name_text}>
+                {selectedMovie?.Title}
+              </span>
+            )}
+          </div>
+          <div className={style.main_title_time}>
+            <span>{movieToShow.ReleaseYear}</span>
+            <span>{movieToShow.MpaRating}</span>
+            <span>{movieToShow.Duration}</span>
+          </div>
+          <p>{movieToShow.Description}</p>
+          <Buttons onPlay={() => setPlayingVideo(true)} />
+
+          {playingVideo && selectedMovie?.VideoUrl && (
+            <video
+              src={selectedMovie.VideoUrl}
+              controls
+              autoPlay
+              onClick={handleVideoClick}
+              className={style.main_video}
+            />
           )}
         </div>
-        <div className={style.main_title_time}>
-          <span>{movieToShow.ReleaseYear}</span>
-          <span>{movieToShow.MpaRating}</span>
-          <span>{movieToShow.Duration}</span>
-        </div>
-        <p>{movieToShow.Description}</p>
-        <Buttons onPlay={() => setPlayingVideo(true)} />
 
-        {playingVideo && selectedMovie?.VideoUrl && (
-          <video
-            src={selectedMovie.VideoUrl}
-            controls
-            autoPlay
-            onClick={handleVideoClick}
-            className={style.main_video}
-          />
-        )}
-      </div>
-
-      <div className={style.main_trending}>
-        <h4 className={style.main_trending_title}>Trending Now</h4>
-        <div className={style.main_images}>
-          <MoveList data={data} onClick={handleMovieClick} />
+        <div className={style.main_trending}>
+          <h4 className={style.main_trending_title}>Trending Now</h4>
+          <div className={style.main_trending_images}>
+            <MoveList data={data} onClick={handleMovieClick} />
+          </div>
         </div>
       </div>
     </div>

@@ -12,21 +12,27 @@ interface ImageTrackListProps {
 export const MoveList = ({ data, onClick }: ImageTrackListProps) => {
   return (
     <Swiper
-      spaceBetween={3}
-      slidesPerView={8}
+      spaceBetween={10}
+      slidesPerView={4}
       navigation
+      breakpoints={{
+        320: { slidesPerView: 2 },
+        640: { slidesPerView: 3 },
+        1024: { slidesPerView: 6 },
+      }}
       direction="horizontal"
       className={style.swiperContainer}
     >
       {data.TendingNow.map((item, idx) => {
-        const icon = `/src/assets/${item.CoverImage}`;
+        const icon = new URL(`/src/assets/${item.CoverImage}`, import.meta.url)
+          .href;
         return (
           <SwiperSlide
             key={idx}
             className={style.icons_container_item}
             onClick={() => onClick(item)}
           >
-            <img src={icon} alt={`icon-${idx}`} />
+            <img src={icon} alt={`icon-${idx}`} className={style.icons_container_item_img}/>
           </SwiperSlide>
         );
       })}

@@ -12,7 +12,7 @@ export const Buttons = ({ onPlay }: ButtonsProps) => {
       <div className={style.main_title_buttons_item}>
         <div className={style.main_title_buttons_item_play}>
           <img src={playButton} alt="play-button" />
-          <button onClick={onPlay}>Play</button>
+               <button onClick={onPlay}>Play</button>
         </div>
       </div>
       <div

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 50px;
 }
 
 .pages {
@@ -15,25 +15,12 @@
   transition:
     flex-basis 0.3s ease,
     background-color 1s ease;
-
   padding-left: 38px;
-
-  &.expanded {
-    flex: 0 0 20%;
-    flex-direction: column;
-    height: 100%;
-    opacity: 1;
-    transform: translateX(0);
-    transition:
-      opacity 0.3s ease,
-      transform 1s ease;
-  }
 
   &_container {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    padding-top: 200px;
     gap: 60px;
     height: 100vh;
 
@@ -41,13 +28,15 @@
       @include pagesItem;
       align-items: flex-start;
       flex-direction: row !important;
+      padding-top: 20px;
 
       &_column {
         @include pagesItem;
-        gap: 70px;
 
         &_item {
           @include pagesItem;
+          height: 50px;
+          flex-direction: row;
 
           &_home {
             border-radius: 50%;
@@ -61,55 +50,45 @@
             &.homeIcon {
               background: none;
               width: auto;
-              height: auto;
+              height: 50px;
               box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             }
           }
           > img {
-            height: 28px;
+            height: auto;
           }
         }
+      }
 
-        &_text {
-          @include pagesItem;
-          align-items: flex-start !important;
-          background-color: inherit;
-          visibility: hidden;
-          transition:
-            opacity 0.3s ease,
-            transform 0.3s ease,
-            visibility 0s linear 0.3s;
-          position: absolute;
-          top: 17%;
-          left: 82px;
-          visibility: hidden;
+      &_text {
+        @include pagesItem;
+        align-items: flex-start !important;
+        background-color: inherit;
+        opacity: 0;
+        max-width: 0;
+        overflow: hidden;
+        transform: translateX(-20px);
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease,
+          max-width 0.4s ease;
 
-          &_item {
-            display: flex;
-            align-items: flex-start;
-            column-gap: 20px;
-            text-decoration: none;
-            font-size: 36px;
-            height: 36px;
-            transform: translateX(-20px);
-            transition: max-width 0.5s ease;
-            color: #f1f1f1;
-            white-space: nowrap;
+        &_item {
+          display: flex;
+          align-items: flex-start;
+          column-gap: 20px;
+          text-decoration: none;
+          font-size: 30px;
+          height: 50px;
+          color: #f1f1f1;
+          white-space: nowrap;
+        }
 
-            .pages.expanded & {
-              opacity: 80%;
-              transform: translateX(0);
-              visibility: visible;
-              transition:
-                opacity 0.3s ease,
-                transform 0.3s ease,
-                visibility 0s linear 0s;
-            }
-          }
-          .textExpanded &_text {
-            opacity: 1;
-            max-width: 200px;
-          }
+        &.textExpanded {
+          opacity: 1;
+          max-width: 200px; // enough to show text
+          transform: translateX(0);
+          overflow: visible;
         }
       }
     }
@@ -117,9 +96,9 @@
   &_footer {
     @include pagesItem;
     align-items: flex-start !important;
-    gap: 20px;
     position: absolute;
-    top: 70%;
+    gap: 0;
+    top: 85%;
     left: 38px;
     opacity: 0;
     transform: translateY(20px);

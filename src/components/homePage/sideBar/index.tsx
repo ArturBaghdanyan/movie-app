@@ -56,7 +56,7 @@ export const SideBar = ({ isExpanded, setIsExpanded }: ISide) => {
           </div>
 
           <div
-            className={`${style.pages_container_icons_column_text} ${
+            className={`${style.pages_container_icons_text} ${
               sidebarExpanded ? style.textExpanded : ""
             } ${style.pagesItem}`}
           >
@@ -64,7 +64,7 @@ export const SideBar = ({ isExpanded, setIsExpanded }: ISide) => {
               <Link
                 key={index}
                 to={item.path}
-                className={style.pages_container_icons_column_text_item}
+                className={style.pages_container_icons_text_item}
                 onClick={() => setIsExpanded(false)}
               >
                 {item.label}

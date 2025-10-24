@@ -22,3 +22,10 @@ declare module "*.svg" {
   const value: string;
   export default value;
 }
+
+declare module '*.css';
+
+declare module 'swiper/css';
+declare module 'swiper/css/navigation';
+declare module 'swiper/css/pagination';
+

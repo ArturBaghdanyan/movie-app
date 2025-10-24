@@ -1,20 +1,21 @@
-.icons {
-  width: 100%;
-  overflow: visible;
 
   .swiperContainer {
     width: 100%;
+    height: 320px;
+    overflow: visible;
+    padding: 10px 0;
 
     .swiper-slide {
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 200px !important;
-      height: 296px !important;
+      height: 296px;
 
-      img {
-        max-width: 100% !important;
+      &_img {
+        width: 100% !important;
         height: 100% !important;
+        object-fit: cover;
+        border-radius: 10px;
         cursor: pointer;
       }
     }
@@ -24,4 +25,51 @@
   .swiper-button-prev {
     color: #fff;
   }
-}
+  /* ---------- Responsive Breakpoints ---------- */
+
+  /* 📱 Mobile: width < 768px */
+  @media (max-width: 767px) {
+    .swiperContainer {
+      height: 200px;
+
+      .swiper-slide {
+        height: 180px;
+        img {
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+
+  /* 💻 Tablet: width between 768px and 992px */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .swiperContainer {
+      height: 260px;
+
+      .swiper-slide {
+        height: 240px;
+      }
+    }
+  }
+
+  /* 🖥 Desktop: width between 993px and 1024px */
+  @media (min-width: 993px) and (max-width: 1024px) {
+    .swiperContainer {
+      height: 300px;
+
+      .swiper-slide {
+        height: 280px;
+      }
+    }
+  }
+
+  /* 🖥 Larger screens: width > 1024px */
+  @media (min-width: 1025px) {
+    .swiperContainer {
+      height: 320px;
+
+      .swiper-slide {
+        height: 296px;
+      }
+    }
+  }
