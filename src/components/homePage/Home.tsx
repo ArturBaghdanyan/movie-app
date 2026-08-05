@@ -9,8 +9,8 @@ const Home = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className={style.home}>
-      <div className={style.home_container}>
+    <div className={style["home"]}>
+      <div className={style['home__container']}>
         <SideBar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
         <MainContainer />
       </div>
