@@ -15,7 +15,6 @@ const menuItems = [
   { icon: homeIcon, label: "Home", path: "/" },
   { icon: tvShowIcon, label: "TV shows", path: "/" },
   { icon: movesIcon, label: "Movies", path: "/" },
-  { icon: genresIcon, label: "Genres", path: "/" },
   { icon: watchLaterIcon, label: "Watch Later", path: "/" },
 ];
 interface ISide {
@@ -52,23 +51,6 @@ export const SideBar = ({ isExpanded, setIsExpanded }: ISide) => {
                   <img src={item.icon} alt={item.label} />
                 )}
               </div>
-            ))}
-          </div>
-
-          <div
-            className={`${style.pages_container_icons_text} ${
-              sidebarExpanded ? style.textExpanded : ""
-            } ${style.pagesItem}`}
-          >
-            {menuItems.map((item, index) => (
-              <Link
-                key={index}
-                to={item.path}
-                className={style.pages_container_icons_text_item}
-                onClick={() => setIsExpanded(false)}
-              >
-                {item.label}
-              </Link>
             ))}
           </div>
         </div>
