@@ -27,13 +27,13 @@ export const Images = () => {
       </div>
       <div className={style["main__metadata"]}>
         <span className={style["main__metadata-item"]}>
-          {movieToShow?.ReleaseYear}
+          {movieToShow?.ReleaseYear} Year
         </span>
         <span className={style["main__metadata-item"]}>
           {movieToShow?.MpaRating}
         </span>
         <span className={style["main__metadata-item"]}>
-          {movieToShow?.Duration}
+          {movieToShow?.Duration} min
         </span>
       </div>
       <p>{movieToShow?.Description}</p>

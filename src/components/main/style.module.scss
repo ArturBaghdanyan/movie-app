@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding-top: 20px;
-  
+
   &_title {
     display: flex;
     flex-direction: column;
@@ -28,24 +28,7 @@
       width: 70%;
     }
 
-    &_name {
-      display: flex;
-      align-items: center;
-
-      > h2 {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        font-weight: bold;
-        font-size: 36px;
-        text-transform: uppercase;
-        font-family: "tajawal", sans-serif;
-      }
-      &_text {
-        font-size: 36px;
-        font-weight: bold;
-      }
-    }
+  
 
     &_time {
       display: flex;
@@ -109,6 +92,33 @@
       }
     }
   }
+    &__name {
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+      > h2 {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        font-weight: bold;
+        font-size: 36px;
+        text-transform: uppercase;
+        font-family: "tajawal", sans-serif;
+      }
+      &_text {
+        font-size: 36px;
+        font-weight: bold;
+      }
+    }
+    &__metadata {
+      display: flex;
+      align-items: center;
+      column-gap: 20px;
+      > span {
+        font-size: 32px;
+        font-weight: bold;
+      }
+    }
   @media only screen and (max-width: 900px) {
     &_title {
       width: 40%;
